@@ -1,293 +1,226 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>C++ Programs Collection</title>
-  <style>
-    /* Simple styling */
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;max-width:1000px;margin:24px auto;padding:12px}
-    header{display:flex;align-items:center;gap:12px}
-    .prog{border:1px solid #ddd;border-radius:8px;padding:12px;margin:12px 0;box-shadow:0 2px 6px rgba(0,0,0,0.03)}
-    .prog h3{margin:0 0 8px 0}
-    pre{background:#0b0b0b;color:#f8f8f2;padding:12px;overflow:auto;border-radius:6px;white-space:pre-wrap}
-    button{margin-right:8px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;background:#fafafa;cursor:pointer}
-    .controls{margin-bottom:8px}
-    .small{font-size:0.9rem;color:#555}
-    .hint{background:#fffbeb;padding:8px;border-left:4px solid #ffd54f;margin-bottom:12px}
-    input[type=file]{display:none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programs</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background: #444;
+            border: none;
+            color: white;
+        }
+
+        .sidebar button:hover {
+            background: #555;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #00ff9c;
+            padding: 20px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+
+        .controls {
+            margin-bottom: 15px;
+        }
+
+        .controls button {
+            margin-right: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function showProgram(id) {
+            const programs = document.querySelectorAll(".program");
+            programs.forEach(p => p.style.display = "none");
+
+            document.getElementById(id).style.display = "block";
+        }
+
+        function copyCode(codeId) {
+            const text = document.getElementById(codeId).innerText;
+            navigator.clipboard.writeText(text);
+            alert("Code copied!");
+        }
+
+        function downloadCode(codeId, fileName) {
+            const text = document.getElementById(codeId).innerText;
+            const blob = new Blob([text], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            link.click();
+        }
+    </script>
 </head>
+
 <body>
-  <header>
-    <h1>C++ Programs (10)</h1>
-    <div class="small">Paste your program source into the code block for each program or place separate .cpp files in a <code>/code</code> folder (see instructions below).</div>
-  </header>
 
-  <div class="hint">
-    <strong>How to use</strong>
-    <ol>
-      <li>To embed code directly: open this file and replace the placeholder text inside each <code>&lt;code&gt;&lt;/code&gt;</code> block for the program you want to add.</li>
-      <li>To keep files separate: save files as <code>prog1.cpp</code> ... <code>prog10.cpp</code> in a <code>code/</code> folder next to this index.html. Use the <em>Load .cpp</em> button to import a file into a slot, or use the <em>Download .cpp</em> button to export a slot's content to a .cpp file.</li>
-      <li>Use the <em>Copy</em> button to copy the program to clipboard for pasting into your IDE or compiler.</li>
-    </ol>
-  </div>
+<header>C++ PROGRAMS</header>
 
-  <!--  ====== Program slots: paste code inside the <code> tags for each program ====== -->
+<div class="container">
 
-  <!-- Repeat the block below for prog1 through prog10. Each <code> block contains a placeholder comment where you can paste your C++ code. -->
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Programs</h2>
 
-  <div id="programs">
+        <button onclick="showProgram('p1')">Program 1</button>
+        <button onclick="showProgram('p2')">Program 2</button>
+        <button onclick="showProgram('p3')">Program 3</button>
+        <button onclick="showProgram('p4')">Program 4</button>
+        <button onclick="showProgram('p5')">Program 5</button>
+        <button onclick="showProgram('p6')">Program 6</button>
+        <button onclick="showProgram('p7')">Program 7</button>
+        <button onclick="showProgram('p8')">Program 8</button>
+        <button onclick="showProgram('p9')">Program 9</button>
+        <button onclick="showProgram('p10')">Program 10</button>
+    </div>
 
-    <!-- Program 1 -->
-    <section class="prog" data-index="1">
-      <h3>Program 1 — <span class="title">(give it a short name)</span></h3>
-      <div class="controls">
-        <button onclick="copyCode(1)">Copy</button>
-        <button onclick="downloadCPP(1)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,1)">Load .cpp</label>
-        <span class="small">(You can also edit directly below)</span>
-      </div>
-      <pre><code id="code-1">
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- ================= PROGRAM 1 ================= -->
+        <div id="p1" class="program">
+            <h2>Program 1</h2>
+
+            <div class="controls">
+                <button onclick="copyCode('code-1')">Copy</button>
+                <button onclick="downloadCode('code-1', 'program1.cpp')">Download</button>
+            </div>
+
+            <pre><code id="code-1">
 #include <iostream>
 using namespace std;
-class BINARY
-{
-	short list[30];
-	unsigned short N;
-	
-	void search()
-	{
-		int key;
-		cout<<"enter number to search:";
-		cin>>key;
-		
-		int low=0,high=N-1,mid,found=0,POS;
-		while(low<=high)
-		{
-			mid=(low+high)/2;
-			if(list[mid]==key)
-			{
-				found = 1;
-				POS = mid;
-				break;
-			}
-			else if(list[mid]<key)
-			{
-				low=mid+1;
-			}
-			else
-			{
-				high=mid-1;
-			}
-		}
-		if(found==1)
-		{
-			cout<<key<<"is present in the list at index:"<<mid;	
-		}
-		else
-		{
-			cout<<key<<"is not present in the list\n";
-		}	
-	}
-	public: 
-	BINARY()
-	{
-		cout<<"enter number of elements(max 30)";
-		cin>>N;
-		if(N>30)
-		{
-			cout<<"invalid input N must be <=30\n";
-			N=30;
-		}
-		cout<<"enter"<<N<<"sorted number:\n";
-		for(int i=0;i<N;i++)
-		{
-			cin>>list[i];
-		}
-		search();
-	}
+
+class BINARY {
+private:
+    string num;
+
+public:
+    void read() {
+        cout << "Enter a binary number: ";
+        cin >> num;
+    }
+
+    bool check() {
+        for (char c : num) {
+            if (c != '0' && c != '1')
+                return false;
+        }
+        return true;
+    }
+
+    void onesComplement() {
+        for (char &c : num) {
+            c = (c == '0') ? '1' : '0';
+        }
+    }
+
+    void display() {
+        cout << "Binary Number: " << num << endl;
+    }
 };
 
+int main() {
+    BINARY b;
+    b.read();
+    
+    if (!b.check()) {
+        cout << "Invalid Binary Number!";
+        return 0;
+    }
 
-int main()
-{
-	BINARY obj;
-	return 0;
+    cout << "Original ";
+    b.display();
+
+    b.onesComplement();
+
+    cout << "1's Complement ";
+    b.display();
+
+    return 0;
 }
-</code></pre>
-    </section>
+            </code></pre>
+        </div>
 
-    <!-- Program 2 -->
-    <section class="prog" data-index="2">
-      <h3>Program 2 — <span class="title">(give it a short name)</span></h3>
-      <div class="controls">
-        <button onclick="copyCode(2)">Copy</button>
-        <button onclick="downloadCPP(2)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,2)">Load .cpp</label>
-      </div>
-      <pre><code id="code-2">// Paste your C++ code for Program 2 here
+        <!-- ================= PROGRAM 2 ================= -->
+        <div id="p2" class="program" style="display:none;">
+            <h2>Program 2</h2>
 
-// Example placeholder
-#include &lt;iostream&gt;
-using namespace std;
-int main(){ cout<<"Hello from prog2"; return 0; }</code></pre>
-    </section>
+            <div class="controls">
+                <button onclick="copyCode('code-2')">Copy</button>
+                <button onclick="downloadCode('code-2', 'program2.cpp')">Download</button>
+            </div>
 
-    <!-- Program 3 -->
-    <section class="prog" data-index="3">
-      <h3>Program 3</h3>
-      <div class="controls">
-        <button onclick="copyCode(3)">Copy</button>
-        <button onclick="downloadCPP(3)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,3)">Load .cpp</label>
-      </div>
-      <pre><code id="code-3">// Paste your C++ code for Program 3 here
-</code></pre>
-    </section>
+            <pre><code id="code-2">
+// PASTE PROGRAM 2 HERE
+            </code></pre>
+        </div>
 
-    <!-- Program 4 -->
-    <section class="prog" data-index="4">
-      <h3>Program 4</h3>
-      <div class="controls">
-        <button onclick="copyCode(4)">Copy</button>
-        <button onclick="downloadCPP(4)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,4)">Load .cpp</label>
-      </div>
-      <pre><code id="code-4">// Paste your C++ code for Program 4 here
-</code></pre>
-    </section>
+        <!-- ================= Program 3–10 (empty) ================= -->
+        <div id="p3" class="program" style="display:none;"><h2>Program 3</h2><pre><code id="code-3">// PASTE PROGRAM 3 HERE</code></pre></div>
+        <div id="p4" class="program" style="display:none;"><h2>Program 4</h2><pre><code id="code-4">// PASTE PROGRAM 4 HERE</code></pre></div>
+        <div id="p5" class="program" style="display:none;"><h2>Program 5</h2><pre><code id="code-5">// PASTE PROGRAM 5 HERE</code></pre></div>
+        <div id="p6" class="program" style="display:none;"><h2>Program 6</h2><pre><code id="code-6">// PASTE PROGRAM 6 HERE</code></pre></div>
+        <div id="p7" class="program" style="display:none;"><h2>Program 7</h2><pre><code id="code-7">// PASTE PROGRAM 7 HERE</code></pre></div>
+        <div id="p8" class="program" style="display:none;"><h2>Program 8</h2><pre><code id="code-8">// PASTE PROGRAM 8 HERE</code></pre></div>
+        <div id="p9" class="program" style="display:none;"><h2>Program 9</h2><pre><code id="code-9">// PASTE PROGRAM 9 HERE</code></pre></div>
+        <div id="p10" class="program" style="display:none;"><h2>Program 10</h2><pre><code id="code-10">// PASTE PROGRAM 10 HERE</code></pre></div>
 
-    <!-- Program 5 -->
-    <section class="prog" data-index="5">
-      <h3>Program 5</h3>
-      <div class="controls">
-        <button onclick="copyCode(5)">Copy</button>
-        <button onclick="downloadCPP(5)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,5)">Load .cpp</label>
-      </div>
-      <pre><code id="code-5">// Paste your C++ code for Program 5 here
-</code></pre>
-    </section>
+    </div>
+</div>
 
-    <!-- Program 6 -->
-    <section class="prog" data-index="6">
-      <h3>Program 6</h3>
-      <div class="controls">
-        <button onclick="copyCode(6)">Copy</button>
-        <button onclick="downloadCPP(6)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,6)">Load .cpp</label>
-      </div>
-      <pre><code id="code-6">// Paste your C++ code for Program 6 here
-</code></pre>
-    </section>
-
-    <!-- Program 7 -->
-    <section class="prog" data-index="7">
-      <h3>Program 7</h3>
-      <div class="controls">
-        <button onclick="copyCode(7)">Copy</button>
-        <button onclick="downloadCPP(7)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,7)">Load .cpp</label>
-      </div>
-      <pre><code id="code-7">// Paste your C++ code for Program 7 here
-</code></pre>
-    </section>
-
-    <!-- Program 8 -->
-    <section class="prog" data-index="8">
-      <h3>Program 8</h3>
-      <div class="controls">
-        <button onclick="copyCode(8)">Copy</button>
-        <button onclick="downloadCPP(8)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,8)">Load .cpp</label>
-      </div>
-      <pre><code id="code-8">// Paste your C++ code for Program 8 here
-</code></pre>
-    </section>
-
-    <!-- Program 9 -->
-    <section class="prog" data-index="9">
-      <h3>Program 9</h3>
-      <div class="controls">
-        <button onclick="copyCode(9)">Copy</button>
-        <button onclick="downloadCPP(9)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,9)">Load .cpp</label>
-      </div>
-      <pre><code id="code-9">// Paste your C++ code for Program 9 here
-</code></pre>
-    </section>
-
-    <!-- Program 10 -->
-    <section class="prog" data-index="10">
-      <h3>Program 10</h3>
-      <div class="controls">
-        <button onclick="copyCode(10)">Copy</button>
-        <button onclick="downloadCPP(10)">Download .cpp</button>
-        <label style="cursor:pointer"><input type="file" accept=".cpp" onchange="loadFile(event,10)">Load .cpp</label>
-      </div>
-      <pre><code id="code-10">// Paste your C++ code for Program 10 here
-</code></pre>
-    </section>
-
-  </div>
-
-  <script>
-    // Copy code of slot i to clipboard
-    function copyCode(i){
-      const el = document.getElementById('code-' + i);
-      const txt = el.textContent;
-      navigator.clipboard.writeText(txt).then(()=>{
-        alert('Program ' + i + ' copied to clipboard');
-      }, ()=>{ alert('Copy failed — try selecting and copying manually'); });
-    }
-
-    // Download code as a .cpp file
-    function downloadCPP(i){
-      const el = document.getElementById('code-' + i);
-      const txt = el.textContent;
-      const blob = new Blob([txt], {type:'text/x-c++src'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'prog' + i + '.cpp';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-
-    // Load a .cpp file into a slot (uses the file input change event)
-    function loadFile(event, i){
-      const file = event.target.files[0];
-      if(!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e){
-        const content = e.target.result;
-        const el = document.getElementById('code-' + i);
-        el.textContent = content;
-      };
-      reader.readAsText(file);
-      // reset the input so the same file can be loaded again if needed
-      event.target.value = '';
-    }
-
-    // Make code blocks editable in-place when clicked
-    document.querySelectorAll('pre code').forEach(codeEl=>{
-      codeEl.setAttribute('contenteditable','true');
-      codeEl.addEventListener('keydown', (e)=>{
-        // allow tab to insert tab character
-        if(e.key === 'Tab'){
-          e.preventDefault();
-          document.execCommand('insertText', false, '  ');
-        }
-      });
-    });
-  </script>
-
-  <!--
-    Notes for you (developer/owner of site):
-    - To edit code: open this index.html in a text editor and replace the placeholder text inside the <code id="code-X"> ... </code> blocks.
-    - Or keep separate files in /code/prog1.cpp ... prog10.cpp and open those with the "Load .cpp" button.
-    - If you plan to share this page on the web, consider adding a client-side syntax highlighter (Prism.js or Highlight.js) by linking their CSS/JS in the <head>.
-  -->
 </body>
 </html>
