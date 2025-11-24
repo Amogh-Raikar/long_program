@@ -1,226 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ Programs</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: #f5f5f5;
+            padding: 20px;
+            background: #f4f4f4;
         }
-
-        header {
-            background: #222;
-            color: white;
-            padding: 15px;
+        h1 {
             text-align: center;
-            font-size: 24px;
         }
-
-        .container {
+        .gallery {
             display: flex;
-            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
-
-        .sidebar {
-            width: 250px;
-            background: #333;
-            color: white;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .sidebar button {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            font-size: 16px;
-            cursor: pointer;
-            background: #444;
-            border: none;
-            color: white;
-        }
-
-        .sidebar button:hover {
-            background: #555;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        pre {
-            background: #1e1e1e;
-            color: #00ff9c;
-            padding: 20px;
-            border-radius: 5px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-size: 16px;
-        }
-
-        .controls {
-            margin-bottom: 15px;
-        }
-
-        .controls button {
-            margin-right: 10px;
-            padding: 8px 12px;
-            cursor: pointer;
+        img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
     </style>
-
-    <script>
-        function showProgram(id) {
-            const programs = document.querySelectorAll(".program");
-            programs.forEach(p => p.style.display = "none");
-
-            document.getElementById(id).style.display = "block";
-        }
-
-        function copyCode(codeId) {
-            const text = document.getElementById(codeId).innerText;
-            navigator.clipboard.writeText(text);
-            alert("Code copied!");
-        }
-
-        function downloadCode(codeId, fileName) {
-            const text = document.getElementById(codeId).innerText;
-            const blob = new Blob([text], { type: "text/plain" });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = fileName;
-            link.click();
-        }
-    </script>
 </head>
-
 <body>
+    <h1>Image Gallery</h1>
 
-<header>C++ PROGRAMS</header>
-
-<div class="container">
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>Programs</h2>
-
-        <button onclick="showProgram('p1')">Program 1</button>
-        <button onclick="showProgram('p2')">Program 2</button>
-        <button onclick="showProgram('p3')">Program 3</button>
-        <button onclick="showProgram('p4')">Program 4</button>
-        <button onclick="showProgram('p5')">Program 5</button>
-        <button onclick="showProgram('p6')">Program 6</button>
-        <button onclick="showProgram('p7')">Program 7</button>
-        <button onclick="showProgram('p8')">Program 8</button>
-        <button onclick="showProgram('p9')">Program 9</button>
-        <button onclick="showProgram('p10')">Program 10</button>
+    <div class="gallery">
+        <a href="https://ibb.co/NgGGXkY0">
+            <img src="https://i.ibb.co/4w00cDNb/Doc-Scanner-24-Nov-2025-5-03-am-1.jpg" alt="Doc-Scanner-24-Nov-2025-5-03-am-1" />
+        </a>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="content">
-
-        <!-- ================= PROGRAM 1 ================= -->
-        <div id="p1" class="program">
-            <h2>Program 1</h2>
-
-            <div class="controls">
-                <button onclick="copyCode('code-1')">Copy</button>
-                <button onclick="downloadCode('code-1', 'program1.cpp')">Download</button>
-            </div>
-
-            <pre><code id="code-1">
-#include <iostream>
-using namespace std;
-
-class BINARY {
-private:
-    string num;
-
-public:
-    void read() {
-        cout << "Enter a binary number: ";
-        cin >> num;
-    }
-
-    bool check() {
-        for (char c : num) {
-            if (c != '0' && c != '1')
-                return false;
-        }
-        return true;
-    }
-
-    void onesComplement() {
-        for (char &c : num) {
-            c = (c == '0') ? '1' : '0';
-        }
-    }
-
-    void display() {
-        cout << "Binary Number: " << num << endl;
-    }
-};
-
-int main() {
-    BINARY b;
-    b.read();
-    
-    if (!b.check()) {
-        cout << "Invalid Binary Number!";
-        return 0;
-    }
-
-    cout << "Original ";
-    b.display();
-
-    b.onesComplement();
-
-    cout << "1's Complement ";
-    b.display();
-
-    return 0;
-}
-            </code></pre>
-        </div>
-
-        <!-- ================= PROGRAM 2 ================= -->
-        <div id="p2" class="program" style="display:none;">
-            <h2>Program 2</h2>
-
-            <div class="controls">
-                <button onclick="copyCode('code-2')">Copy</button>
-                <button onclick="downloadCode('code-2', 'program2.cpp')">Download</button>
-            </div>
-
-            <pre><code id="code-2">
-// PASTE PROGRAM 2 HERE
-            </code></pre>
-        </div>
-
-        <!-- ================= Program 3–10 (empty) ================= -->
-        <div id="p3" class="program" style="display:none;"><h2>Program 3</h2><pre><code id="code-3">// PASTE PROGRAM 3 HERE</code></pre></div>
-        <div id="p4" class="program" style="display:none;"><h2>Program 4</h2><pre><code id="code-4">// PASTE PROGRAM 4 HERE</code></pre></div>
-        <div id="p5" class="program" style="display:none;"><h2>Program 5</h2><pre><code id="code-5">// PASTE PROGRAM 5 HERE</code></pre></div>
-        <div id="p6" class="program" style="display:none;"><h2>Program 6</h2><pre><code id="code-6">// PASTE PROGRAM 6 HERE</code></pre></div>
-        <div id="p7" class="program" style="display:none;"><h2>Program 7</h2><pre><code id="code-7">// PASTE PROGRAM 7 HERE</code></pre></div>
-        <div id="p8" class="program" style="display:none;"><h2>Program 8</h2><pre><code id="code-8">// PASTE PROGRAM 8 HERE</code></pre></div>
-        <div id="p9" class="program" style="display:none;"><h2>Program 9</h2><pre><code id="code-9">// PASTE PROGRAM 9 HERE</code></pre></div>
-        <div id="p10" class="program" style="display:none;"><h2>Program 10</h2><pre><code id="code-10">// PASTE PROGRAM 10 HERE</code></pre></div>
-
-    </div>
-</div>
 
 </body>
 </html>
