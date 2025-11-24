@@ -1,173 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Notes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #1c1e21;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-        }
-        main {
-            max-width: 800px;
-            margin: 0 auto;
+            background: #f4f4f4;
         }
         h1 {
             text-align: center;
-            color: #000;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
         }
-        h2 {
-            text-align: center;
-            color: #555;
-            margin-top: 40px;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .gallery a {
+            display: flex;
+            justify-content: center;
         }
         img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
         }
     </style>
 </head>
 <body>
-    <main>
-        <h1>My Programming Notebook</h1>
+    <h1>Image Gallery</h1>
 
-        <h2>Page 1</h2>
-        <img src="page1.jpg" alt="Page 1 of programming notes">
+    <div class="gallery">
+        <a href="https://ibb.co/NgGGXkY0">
+            <img src="https://i.ibb.co/4w00cDNb/Doc-Scanner-24-Nov-2025-5-03-am-1.jpg" alt="Doc-Scanner-24-Nov-2025-5-03-am-1" />
+        </a>
+    </div>
 
-        <h2>Page 2</h2>
-        <img src="page2.jpg" alt="Page 2 of programming notes">
-
-        <h2>Page 3</h2>
-        <img src="page3.jpg" alt="Page 3 of programming notes">
-
-        <h2>Page 4</h2>
-        <img src="page4.jpg" alt="Page 4 of programming notes">
-
-        <h2>Page 5</h2>
-        <img src="page5.jpg" alt="Page 5 of programming notes">
-
-        <h2>Page 6</h2>
-        <img src="page6.jpg" alt="Page 6 of programming notes">
-
-        <h2>Page 7</h2>
-        <img src="page7.jpg" alt="Page 7 of programming notes">
-
-        <h2>Page 8</h2>
-        <img src="page8.jpg" alt="Page 8 of programming notes">
-
-        <h2>Page 9</h2>
-        <img src="page9.jpg" alt="Page 9 of programming notes">
-
-        <h2>Page 10</h2>
-        <img src="page10.jpg" alt="Page 10 of programming notes">
-
-        <h2>Page 11</h2>
-        <img src="page11.jpg" alt="Page 11 of programming notes">
-
-        <h2>Page 12</h2>
-        <img src="page12.jpg" alt="Page 12 of programming notes">
-
-        <h2>Page 13</h2>
-        <img src="page13.jpg" alt="Page 13 of programming notes">
-
-        <h2>Page 14</h2>
-        <img src="page14.jpg" alt="Page 14 of programming notes">
-
-        <h2>Page 15</h2>
-        <img src="page15.jpg" alt="Page 15 of programming notes">
-
-        <h2>Page 16</h2>
-        <img src="page16.jpg" alt="Page 16 of programming notes">
-
-        <h2>Page 17</h2>
-        <img src="page17.jpg" alt="Page 17 of programming notes">
-
-        <h2>Page 18</h2>
-        <img src="page18.jpg" alt="Page 18 of programming notes">
-
-        <h2>Page 19</h2>
-        <img src="page19.jpg" alt="Page 19 of programming notes">
-
-        <h2>Page 20</h2>
-        <img src="page20.jpg" alt="Page 20 of programming notes">
-
-        <h2>Page 21</h2>
-        <img src="page21.jpg" alt="Page 21 of programming notes">
-
-        <h2>Page 22</h2>
-        <img src="page22.jpg" alt="Page 22 of programming notes">
-
-        <h2>Page 23</h2>
-        <img src="page23.jpg" alt="Page 23 of programming notes">
-
-        <h2>Page 24</h2>
-        <img src="page24.jpg" alt="Page 24 of programming notes">
-
-        <h2>Page 25</h2>
-        <img src="page25.jpg" alt="Page 25 of programming notes">
-
-        <h2>Page 26</h2>
-        <img src="page26.jpg" alt="Page 26 of programming notes">
-
-        <h2>Page 27</h2>
-        <img src="page27.jpg" alt="Page 27 of programming notes">
-
-        <h2>Page 28</h2>
-        <img src="page28.jpg" alt="Page 28 of programming notes">
-
-        <h2>Page 29</h2>
-        <img src="page29.jpg" alt="Page 29 of programming notes">
-
-        <h2>Page 30</h2>
-        <img src="page30.jpg" alt="Page 30 of programming notes">
-
-        <h2>Page 31</h2>
-        <img src="page31.jpg" alt="Page 31 of programming notes">
-
-        <h2>Page 32</h2>
-        <img src="page32.jpg" alt="Page 32 of programming notes">
-
-        <h2>Page 33</h2>
-        <img src="page33.jpg" alt="Page 33 of programming notes">
-
-        <h2>Page 34</h2>
-        <img src="page34.jpg" alt="Page 34 of programming notes">
-
-        <h2>Page 35</h2>
-        <img src="page35.jpg" alt="Page 35 of programming notes">
-
-        <h2>Page 36</h2>
-        <img src="page36.jpg" alt="Page 36 of programming notes">
-
-        <h2>Page 37</h2>
-        <img src="page37.jpg" alt="Page 37 of programming notes">
-
-        <h2>Page 38</h2>
-        <img src="page38.jpg" alt="Page 38 of programming notes">
-
-        <h2>Page 39</h2>
-        <img src="page39.jpg" alt="Page 39 of programming notes">
-
-        <h2>Page 40</h2>
-        <img src="page40.jpg" alt="Page 40 of programming notes">
-
-        <h2>Page 41</h2>
-        <img src="page41.jpg" alt="Page 41 of programming notes">
-
-        <h2>Page 42</h2>
-        <img src="page42.jpg" alt="Page 42 of programming notes">
-
-    </main>
 </body>
 </html>
